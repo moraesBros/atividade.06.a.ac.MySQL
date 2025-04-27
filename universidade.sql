@@ -144,3 +144,7 @@ REVOKE GRANT OPTION ON Universidade.SalaDeAula FROM 'User_A'@'localhost';
 -- Aplicar as mudanças
 FLUSH PRIVILEGES;
 
+
+USE Universidade;
+-- Mostrar privilégios.
+SHOW GRANTS FOR 'User_A'@'localhost';
