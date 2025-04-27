@@ -118,6 +118,8 @@ CREATE TABLE Conselheiro (
     FOREIGN KEY (instrutor_id) REFERENCES Instrutor(id)
 );
 
+
+
 USE Universidade;
 
 -- Contas de usuário e associá-las ao banco de dados.
@@ -126,3 +128,19 @@ CREATE USER 'User_B'@'localhost' IDENTIFIED BY 'senhaB';
 CREATE USER 'User_C'@'localhost' IDENTIFIED BY 'senhaC';
 CREATE USER 'User_D'@'localhost' IDENTIFIED BY 'senhaD';
 CREATE USER 'User_E'@'localhost' IDENTIFIED BY 'senhaE';
+
+
+
+USE Universidade;
+
+-- Conceder privilégios para todas as tabelas, exceto SalaDeAula.
+GRANT SELECT, INSERT, UPDATE, DELETE ON Universidade.* TO 'User_A'@'localhost';
+REVOKE SELECT, INSERT, UPDATE, DELETE ON Universidade.SalaDeAula FROM 'User_A'@'localhost';
+
+-- Permitir que o User_A conceda privilégios para outros usuários.
+GRANT GRANT OPTION ON Universidade.* TO 'User_A'@'localhost';
+REVOKE GRANT OPTION ON Universidade.SalaDeAula FROM 'User_A'@'localhost';
+
+-- Aplicar as mudanças
+FLUSH PRIVILEGES;
+
