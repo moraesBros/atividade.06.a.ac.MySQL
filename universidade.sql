@@ -117,3 +117,12 @@ CREATE TABLE Conselheiro (
     FOREIGN KEY (estudante_id) REFERENCES Estudante(id),
     FOREIGN KEY (instrutor_id) REFERENCES Instrutor(id)
 );
+
+USE Universidade;
+
+-- Contas de usuário e associá-las ao banco de dados.
+CREATE USER 'User_A'@'localhost' IDENTIFIED BY 'senhaA';
+CREATE USER 'User_B'@'localhost' IDENTIFIED BY 'senhaB';
+CREATE USER 'User_C'@'localhost' IDENTIFIED BY 'senhaC';
+CREATE USER 'User_D'@'localhost' IDENTIFIED BY 'senhaD';
+CREATE USER 'User_E'@'localhost' IDENTIFIED BY 'senhaE';
